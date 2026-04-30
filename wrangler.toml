@@ -4,7 +4,7 @@ compatibility_date = "2024-09-23"
 
 [[kv_namespaces]]
 binding = "KV"
-id = "REPLACE_THIS_WITH_YOUR_KV_ID"
+id = "c37eac53888a4e30a06caf2d853b4378"
 
 [vars]
 # Yahan kuch mat daalo — secrets neeche wrangler secret se set karo
