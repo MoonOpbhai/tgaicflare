@@ -1,10 +1,8 @@
 name = "telegram-bot"
 main = "worker.js"
 compatibility_date = "2024-09-23"
+account_id = "cd90f22a845168b36202de212b504520"
 
 [[kv_namespaces]]
 binding = "KV"
 id = "c37eac53888a4e30a06caf2d853b4378"
-
-[vars]
-# Yahan kuch mat daalo — secrets neeche wrangler secret se set karo
