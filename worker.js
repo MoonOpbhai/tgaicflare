@@ -462,20 +462,20 @@ function plainCleanup(text) {
   text = text.replace(/\n{5,}/g, "\n\n\n");
   // Fix bare language names before code
   text = text.replace(
-    /(?m)^python\s*\n(?=def |class |import |from |print\(|async |await |[a-zA-Z_])/gm,
+    /^python\s*\n(?=def |class |import |from |print\(|async |await |[a-zA-Z_])/gm,
     "```python\n"
   );
-  text = text.replace(/(?m)^bash\s*\n(?=[a-zA-Z0-9_./~$-])/gm, "```bash\n");
-  text = text.replace(/(?m)^sh\s*\n(?=[a-zA-Z0-9_./~$-])/gm, "```bash\n");
+  text = text.replace(/^bash\s*\n(?=[a-zA-Z0-9_./~$-])/gm, "```bash\n");
+  text = text.replace(/^sh\s*\n(?=[a-zA-Z0-9_./~$-])/gm, "```bash\n");
   text = text.replace(
-    /(?m)^javascript\s*\n(?=const |let |var |function |import |export |async )/gm,
+    /^javascript\s*\n(?=const |let |var |function |import |export |async )/gm,
     "```javascript\n"
   );
   text = text.replace(
-    /(?m)^js\s*\n(?=const |let |var |function |import |export |async )/gm,
+    /^js\s*\n(?=const |let |var |function |import |export |async )/gm,
     "```javascript\n"
   );
-  text = text.replace(/(?m)^json\s*\n(?=[\[{])/gm, "```json\n");
+  text = text.replace(/^json\s*\n(?=[\[{])/gm, "```json\n");
   // Close unclosed code blocks
   const count = (text.match(/```/g) || []).length;
   if (count % 2 !== 0) text += "\n```";
