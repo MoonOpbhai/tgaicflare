@@ -11,14 +11,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: cloudflare/wrangler-action@v3
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          secrets: |
-            TELEGRAM_BOT_TOKEN
-            NVIDIA_API_KEY
-            OWNER_ID
         env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+
+      - name: Set secrets
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           OWNER_ID: ${{ secrets.OWNER_ID }}
+        run: |
+          echo "${{ secrets.TELEGRAM_BOT_TOKEN }}" | npx wrangler secret put TELEGRAM_BOT_TOKEN
+          echo "${{ secrets.NVIDIA_API_KEY }}" | npx wrangler secret put NVIDIA_API_KEY
+          echo "${{ secrets.OWNER_ID }}" | npx wrangler secret put OWNER_ID
