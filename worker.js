@@ -7,7 +7,7 @@
 // ─────────────────────────────────────────────
 
 const API_URL = "https://integrate.api.nvidia.com/v1/chat/completions";
-const DEFAULT_MODEL = "moonshotai/kimi-k2-instruct-0905";
+const DEFAULT_MODEL = "meta/llama-3.3-70b-instruct";
 const MAX_CONTEXT_MESSAGES = 50;
 const SKILLS_GITHUB_BASE =
   "https://raw.githubusercontent.com/sickn33/antigravity-awesome-skills/main/skills";
